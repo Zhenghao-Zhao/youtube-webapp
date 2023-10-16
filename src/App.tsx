@@ -1,12 +1,13 @@
-  import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import PageHeader from './layouts/PageHeader';
+import PageBody from './layouts/PageBody';
+import PageGuide from './layouts/PageGuide';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-roboto">
       <PageHeader />
+      {/* <PageBody /> */}
+      <PageGuide />
     </div>
   );
 }

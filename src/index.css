@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --btn-primary: rgba(0, 0, 0, 0.05);
+  --btn-hover: rgba(0, 0, 0, 0.1);
+  --btn-select: #000;
+}
+
 .icon {
   @apply pointer-events-none block w-full h-full
+}
+
+.guide-section {
+ @apply w-full flex flex-col border-b border-solid px-2 py-2
+}
+
+.guide-section-borderless {
+  @apply guide-section !border-none
 }
