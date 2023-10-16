@@ -3,7 +3,7 @@ import GuideEntry from "../components/GuideEntry";
 
 export default function PageGuide() {
   return (
-    <div className="flex flex-col w-48">
+    <div className="flex flex-col w-52 fixed top-12 bottom-0 overflow-y-scroll">
       <div className="guide-section">
         <GuideEntry title="Home">
           <Home />
