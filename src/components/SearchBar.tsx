@@ -21,18 +21,16 @@ export default function SearchBar() {
 
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex h-10">
-        <div ref={searchbar} className="flex items-center relative border border-solid border-r-0 rounded-l-full ml-8">
-          <div ref={leftSearchIcon} className="absolute left-0 pl-3" hidden>
-            <Search />
-          </div>
-          <input className="focus:outline-none ml-3" type="text" placeholder="Search" onFocus={handleFocus} onBlur={handleBlur}/>
-        </div>
-        <button type="submit" className="border border-solid px-5 rounded-r-full flex items-center justify-center">
+    <form onSubmit={handleSubmit} className="flex h-9 basis-[500px]">
+      <div ref={searchbar} className="flex items-center relative border border-solid border-r-0 rounded-l-full ml-8 grow">
+        <div ref={leftSearchIcon} className="absolute left-0 pl-3" hidden>
           <Search />
-        </button>
+        </div>
+        <input className="focus:outline-none ml-3 grow w-full" type="text" placeholder="Search" onFocus={handleFocus} onBlur={handleBlur}/>
       </div>
+      <button type="submit" className="border border-solid px-5 rounded-r-full flex items-center justify-center">
+        <Search />
+      </button>
     </form>
   )
 }

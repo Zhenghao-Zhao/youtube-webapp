@@ -4,16 +4,10 @@ import Profile from "../assets/widgets/Profile";
 
 export default function MenuBar() {
   return (
-    <div className="flex gap-4 items-center">
-      <button>
-        <Create />
-      </button>
-      <button>
-        <Notification />
-      </button>
-      <button>
-        <Profile />
-      </button>
+    <div className="flex gap-2 items-center">
+      <Create />
+      <Notification />
+      <Profile />
     </div>
   )
 }
