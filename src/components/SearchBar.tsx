@@ -1,19 +1,20 @@
 import Search from "../assets/widgets/Search";
-import { useRef } from "react";
+import { useRef, forwardRef, Dispatch, SetStateAction } from "react";
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
   className?: string;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function SearchBar({ className, ...props}: Props) {
+export default function SearchBar({ className, setIsOpen, ...props}: Props) {
   const searchbar = useRef<HTMLInputElement | null>(null);
   const leftSearchIcon = useRef<HTMLInputElement | null>(null);
   const handleFocus = () => {
-    console.log(searchbar.current!);
     searchbar.current?.classList.remove('ml-8');
     searchbar.current?.classList.add('pl-8');
     leftSearchIcon.current?.removeAttribute('hidden');
+    setIsOpen?.(true);
   }
 
   const handleBlur = () => {
