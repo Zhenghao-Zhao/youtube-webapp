@@ -1,5 +1,5 @@
 import Search from "../assets/widgets/Search";
-import { useRef, forwardRef, Dispatch, SetStateAction } from "react";
+import { useRef, Dispatch, SetStateAction } from "react";
 import { twMerge } from 'tailwind-merge';
 
 type Props = {

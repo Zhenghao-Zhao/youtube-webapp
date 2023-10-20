@@ -13,6 +13,9 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
+      },
+      boxShadow: {
+        'arrow': 'inset 0px 0px 40px 40px #DBA632',
       }
     },
   },
