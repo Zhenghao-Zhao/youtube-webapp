@@ -1,53 +1,53 @@
-import { Gaming, Help, History, Home, Library, Live, Movies, Music, News, Podcasts, ReportHistory, SendFeedback, Settings, Shorts, Sports, Subscription, Trending } from "../assets/widgets/Icons";
+import * as All from "../assets/widgets/Icons";
 import GuideEntry from "../components/GuideEntry";
 
 export default function PageGuide() {
   return (
     <div className="flex flex-col w-52 fixed top-12 bottom-0 overflow-y-scroll">
-      <div className="guide-section">
+      <div className="guide-section !pt-0">
         <GuideEntry title="Home">
-          <Home />
+          <All.Home />
         </GuideEntry>
         <GuideEntry title="Shorts">
-          <Shorts />
+          <All.Shorts />
         </GuideEntry>
         <GuideEntry title="Subscriptions">
-          <Subscription />
+          <All.Subscription />
         </GuideEntry>
       </div>
       <div className="guide-section">
         <GuideEntry title="Library">
-          <Library />
+          <All.Library />
         </GuideEntry>
         <GuideEntry title="History">
-          <History />
+          <All.History />
         </GuideEntry>        
       </div>
       <div className="guide-section mt-1">
         <p>Explore</p>
         <GuideEntry title="Trending">
-          <Trending />
+          <All.Trending />
         </GuideEntry>
         <GuideEntry title="Music">
-          <Music />
+          <All.Music />
         </GuideEntry>
         <GuideEntry title="Movies">
-          <Movies />
+          <All.Movies />
         </GuideEntry>
         <GuideEntry title="Live">
-          <Live />
+          <All.Live />
         </GuideEntry>
         <GuideEntry title="Gaming">
-          <Gaming />
+          <All.Gaming />
         </GuideEntry>
         <GuideEntry title="News">
-          <News />
+          <All.News />
         </GuideEntry>
         <GuideEntry title="Sports">
-          <Sports />
+          <All.Sports />
         </GuideEntry>
         <GuideEntry title="Podcasts">
-          <Podcasts />
+          <All.Podcasts />
         </GuideEntry>
       </div>
       <div className="guide-section">
@@ -55,16 +55,16 @@ export default function PageGuide() {
       </div>
       <div className="guide-section">
         <GuideEntry title="Settings">
-          <Settings />
+          <All.Settings />
         </GuideEntry>
         <GuideEntry title="Report history">
-          <ReportHistory />
+          <All.ReportHistory />
         </GuideEntry>        
         <GuideEntry title="Help">
-          <Help />
+          <All.Help />
         </GuideEntry>
         <GuideEntry title="Send feedback">
-          <SendFeedback />
+          <All.SendFeedback />
         </GuideEntry>
       </div>
       <div className="guide-section-borderless">

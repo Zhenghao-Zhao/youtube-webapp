@@ -8,13 +8,19 @@ export default function ChipBar() {
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
 
-  // todo: initialize showRight with respect to if list width is larger than viewport width
+  useEffect(() => {
+    const element = listRef.current!;
+    if (element.scrollWidth <= element.clientWidth) {
+      setShowRight(false);
+    }
+  }, [])
 
   const chips = chipArray.map(chip => 
     <Chip title={chip} key={chip} />
   )
 
   const handleLeftClick = () => {
+    setShowRight(true);
     const element = listRef.current!;
 
     if (element.scrollLeft < 400) {
@@ -23,10 +29,11 @@ export default function ChipBar() {
       return;
     }
     element.scrollLeft -= 200;
-    setShowRight(true);
   }
 
   const handleRightClick = () => {
+    setShowLeft(true);
+
     const element = listRef.current!;
     const maxScrollLeft = element.scrollWidth - element.clientWidth;
 
@@ -34,9 +41,8 @@ export default function ChipBar() {
       element.scrollLeft += maxScrollLeft - element.scrollLeft;
       setShowRight(false);
       return;
-    }
+    } 
     element.scrollLeft += 200;
-    setShowLeft(true);
   }
 
   return (
