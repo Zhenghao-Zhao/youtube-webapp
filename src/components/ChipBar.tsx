@@ -1,12 +1,14 @@
 import { chips as chipArray } from "../assets/static/Data"
 import Chip from "../assets/widgets/Chip"
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ArrowButton from "./ArrowButton"
 
 export default function ChipBar() {
   const listRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
+
+  // todo: initialize showRight with respect to if list width is larger than viewport width
 
   const chips = chipArray.map(chip => 
     <Chip title={chip} key={chip} />
