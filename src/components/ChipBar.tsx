@@ -1,22 +1,49 @@
 import { chips as chipArray } from "../assets/static/Data"
-import { Arrow } from "../assets/widgets/Icons"
-import Chip from "./Chip"
-import IconButton from "./IconButton"
+import Chip from "../assets/widgets/Chip"
+import { useRef, useState } from 'react'
+import ArrowButton from "./ArrowButton"
 
 export default function ChipBar() {
+  const listRef = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
+
   const chips = chipArray.map(chip => 
     <Chip title={chip} key={chip} />
   )
-  return (
-    <div className="relative flex items-center gap-3 text-sm py-2 overflow-hidden">
-      { chips }
 
-      <div className="absolute right-0 w-28 h-10 bg-gradient-to-r from-transparent via-white to-white"></div>
-      <div className="flex absolute justify-end right-0 z-20">
-        <IconButton>
-          <Arrow />
-        </IconButton>
+  const handleLeftClick = () => {
+    const element = listRef.current!;
+
+    if (element.scrollLeft < 400) {
+      element.scrollLeft = 0;
+      setShowLeft(false);
+      return;
+    }
+    element.scrollLeft -= 200;
+    setShowRight(true);
+  }
+
+  const handleRightClick = () => {
+    const element = listRef.current!;
+    const maxScrollLeft = element.scrollWidth - element.clientWidth;
+
+    if (maxScrollLeft - element.scrollLeft < 400) {
+      element.scrollLeft += maxScrollLeft - element.scrollLeft;
+      setShowRight(false);
+      return;
+    }
+    element.scrollLeft += 200;
+    setShowLeft(true);
+  }
+
+  return (
+    <div className="relative flex items-center">
+      <ArrowButton handleClick={handleLeftClick} className={`rotate-180 left-0 ${showLeft? "flex" : "hidden"}`}/>
+      <div ref={listRef} className="overflow-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
+        { chips }
       </div>
+      <ArrowButton handleClick={handleRightClick} className={`${showRight? "flex" : "hidden"}`} />
     </div>
   )
 }
