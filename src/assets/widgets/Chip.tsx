@@ -1,5 +1,4 @@
 import { useRef } from "react"
-import { twMerge } from "tailwind-merge"
 
 type Prop = {
   title: string;
@@ -13,7 +12,7 @@ export default function Chip({ title, onSelect, selectedChip}: Prop) {
     onSelect();
   }
   return (
-    <button ref={ref} className={`flex-shrink-0 px-2 py-1.5 rounded-md ${selectedChip === title? "bg-black text-white" : "hover:bg-btn-hover bg-btn-primary"}`} onClick={ handleClick }>
+    <button onClick={ handleClick } ref={ref} className={`flex-shrink-0 px-2 py-1.5 rounded-md ${selectedChip === title? "bg-black text-white" : "hover:bg-btn-hover bg-btn-primary"}`}>
       { title }
     </button>
   )

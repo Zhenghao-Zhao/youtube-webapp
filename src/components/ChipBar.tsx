@@ -11,9 +11,14 @@ export default function ChipBar() {
 
   useEffect(() => {
     const element = listRef.current!;
-    if (element.scrollWidth <= element.clientWidth) {
-      setShowRight(false);
+    const update = () => {
+      if (element.scrollWidth <= element.clientWidth) {
+        setShowRight(false);
+      } else {
+        setShowRight(true);
+      }
     }
+    window.addEventListener('resize', update);
   }, [])
 
   const chips = chipArray.map((chip) => 
