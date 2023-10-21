@@ -7,6 +7,7 @@ export default function ChipBar() {
   const listRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
+  const [selectedChip, setSelectedChip] = useState<string>(chipArray[0]);
 
   useEffect(() => {
     const element = listRef.current!;
@@ -15,8 +16,8 @@ export default function ChipBar() {
     }
   }, [])
 
-  const chips = chipArray.map(chip => 
-    <Chip title={chip} key={chip} />
+  const chips = chipArray.map((chip) => 
+      <Chip title={chip} key={chip} onSelect={() => { setSelectedChip(chip) }} selectedChip={selectedChip}/>
   )
 
   const handleLeftClick = () => {
@@ -46,7 +47,7 @@ export default function ChipBar() {
   }
 
   return (
-    <div className="relative flex items-center">
+    <div className="sticky flex items-center">
       <ArrowButton handleClick={handleLeftClick} className={`rotate-180 left-0 ${showLeft? "flex" : "hidden"}`}/>
       <div ref={listRef} className="overflow-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
         { chips }
