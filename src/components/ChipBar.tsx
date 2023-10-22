@@ -34,8 +34,7 @@ export default function ChipBar() {
 
     if (element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft = 0;
-      setShowLeft(false);
-      return;
+      return setShowLeft(false);
     }
     element.scrollLeft -= TRANSLATE_DISTANCE;
   }
@@ -48,8 +47,7 @@ export default function ChipBar() {
 
     if (maxScrollLeft - element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft += maxScrollLeft - element.scrollLeft;
-      setShowRight(false);
-      return;
+      return setShowRight(false);
     } 
     element.scrollLeft += TRANSLATE_DISTANCE;
   }
