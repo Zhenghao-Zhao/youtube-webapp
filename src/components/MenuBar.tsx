@@ -3,11 +3,10 @@ import Notification from "../assets/widgets/Notification";
 import Profile from "../assets/widgets/Profile";
 import Search from "../assets/widgets/Search";
 import Voice from "../assets/widgets/Voice";
-import { Dispatch, SetStateAction } from "react";
 import IconButton from "./IconButton";
 
 type Props = {
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: (b: boolean) => void;
 }
 
 export default function MenuBar({ setIsOpen }: Props) {

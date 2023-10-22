@@ -1,10 +1,10 @@
 import Search from "../assets/widgets/Search";
-import { useRef, Dispatch, SetStateAction } from "react";
+import { useRef } from "react";
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
   className?: string;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: (b: boolean) => void;
 }
 
 export default function SearchBar({ className, setIsOpen, ...props}: Props) {
@@ -14,13 +14,14 @@ export default function SearchBar({ className, setIsOpen, ...props}: Props) {
     searchbar.current?.classList.remove('ml-8');
     searchbar.current?.classList.add('pl-8');
     leftSearchIcon.current?.removeAttribute('hidden');
-    setIsOpen?.(true);
+    setIsOpen(true);
   }
 
   const handleBlur = () => {
     searchbar.current?.classList.remove('pl-8');
     searchbar.current?.classList.add('ml-8');
     leftSearchIcon.current?.setAttribute('hidden', '');
+    setIsOpen(false);
   }
 
   const handleSubmit = () => {
