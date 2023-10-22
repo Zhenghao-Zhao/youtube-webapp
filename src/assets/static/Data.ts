@@ -6,13 +6,13 @@ export const chips = [
   "Performance cars",
   "Game shows",
   "Gaming",
-  // "Car Racing",
-  // "NBA",
-  // "Computer programming",
-  // "Culinary arts",
-  // "Retrievers",
-  // "Live",
-  // "Comedy",
-  // "Action-adventure games",
-  // "Recently uploaded"
+  "Car Racing",
+  "NBA",
+  "Computer programming",
+  "Culinary arts",
+  "Retrievers",
+  "Live",
+  "Comedy",
+  "Action-adventure games",
+  "Recently uploaded"
 ]

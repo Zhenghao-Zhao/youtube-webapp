@@ -6,19 +6,22 @@ import ArrowButton from "./ArrowButton"
 export default function ChipBar() {
   const listRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
-  const [showRight, setShowRight] = useState(true);
+  const [showRight, setShowRight] = useState(false);
   const [selectedChip, setSelectedChip] = useState<string>(chipArray[0]);
+  const TRANSLATE_DISTANCE = 200; // 200px per click on arrow button
 
   useEffect(() => {
     const element = listRef.current!;
-    const update = () => {
-      if (element.scrollWidth <= element.clientWidth) {
-        setShowRight(false);
-      } else {
-        setShowRight(true);
-      }
+
+    const observer = new ResizeObserver(entires => {
+      const container = entires[0].target;
+      setShowRight(container.scrollWidth > container.clientWidth);
+      setShowLeft(container.scrollLeft > 0);
+    })
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
     }
-    window.addEventListener('resize', update);
   }, [])
 
   const chips = chipArray.map((chip) => 
@@ -29,12 +32,12 @@ export default function ChipBar() {
     setShowRight(true);
     const element = listRef.current!;
 
-    if (element.scrollLeft < 400) {
+    if (element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft = 0;
       setShowLeft(false);
       return;
     }
-    element.scrollLeft -= 200;
+    element.scrollLeft -= TRANSLATE_DISTANCE;
   }
 
   const handleRightClick = () => {
@@ -43,21 +46,21 @@ export default function ChipBar() {
     const element = listRef.current!;
     const maxScrollLeft = element.scrollWidth - element.clientWidth;
 
-    if (maxScrollLeft - element.scrollLeft < 400) {
+    if (maxScrollLeft - element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft += maxScrollLeft - element.scrollLeft;
       setShowRight(false);
       return;
     } 
-    element.scrollLeft += 200;
+    element.scrollLeft += TRANSLATE_DISTANCE;
   }
 
   return (
     <div className="sticky flex items-center">
-      <ArrowButton handleClick={handleLeftClick} className={`rotate-180 left-0 ${showLeft? "flex" : "hidden"}`}/>
-      <div ref={listRef} className="overflow-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
+      {showLeft && <ArrowButton handleClick={handleLeftClick} className="rotate-180 left-0"/>}
+      <div ref={listRef} className="overflow-x-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
         { chips }
       </div>
-      <ArrowButton handleClick={handleRightClick} className={`${showRight? "flex" : "hidden"}`} />
+      {showRight && <ArrowButton handleClick={handleRightClick} />}
     </div>
   )
 }
