@@ -11,7 +11,7 @@ export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="flex justify-between items-center px-4 py-1 gap-2">
+    <div className="flex justify-between items-center px-4 py-1 gap-2 fixed w-full top-0 z-50 bg-white">
       <div className={`${isOpen? "hidden sm:flex" : "flex"} gap-4 items-center shrink-0`}>
         <Menu />
         <a href="/">
