@@ -53,7 +53,7 @@ export default function ChipBar() {
   }
 
   return (
-    <div className="sticky flex items-center">
+    <div className="sticky flex items-center top-12 bg-white py-2">
       {showLeft && <ArrowButton handleClick={handleLeftClick} className="rotate-180 left-0"/>}
       <div ref={listRef} className="overflow-x-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
         { chips }

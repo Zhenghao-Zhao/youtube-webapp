@@ -3,7 +3,7 @@ import VideoPanel from "../components/VideoPanel";
 
 export default function PageBody() {
   return (
-    <div className="absolute top-12 bottom-0 left-52 right-0 px-4">
+    <div className="mt-10 ml-52 px-4 py-2">
       <ChipBar />
       <VideoPanel />
     </div>

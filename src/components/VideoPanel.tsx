@@ -6,7 +6,7 @@ export default function VideoPanel() {
     <Image title={img.title} image={img.image} key={img.title} />
   )
   return (
-    <div className="grid gap-3 w-full grid-cols-[repeat(auto-fill,minmax(300px,1fr))] mt-2">
+    <div className="grid gap-3 w-full grid-cols-[repeat(auto-fill,minmax(300px,1fr))] mt-4">
       {images}
     </div>
   )

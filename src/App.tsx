@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App font-roboto">
       <PageHeader />
-      <PageBody />
       <PageGuide />
+      <PageBody />
     </div>
   );
 }
