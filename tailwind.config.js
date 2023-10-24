@@ -14,6 +14,10 @@ module.exports = {
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
       },
+      spacing: {
+        'guide-small': 'var(--guide-small)',
+        'guide-normal': 'var(--guide-normal)',
+      }
     },
   },
   plugins: [],

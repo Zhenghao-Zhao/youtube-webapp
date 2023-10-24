@@ -3,7 +3,7 @@ import GuideEntry from "../components/GuideEntry";
 
 export default function PageGuide() {
   return (
-    <div className="flex flex-col w-52 fixed top-12 bottom-0 overflow-y-scroll">
+    <div className="flex flex-col items-center w-guide-normal fixed top-16 bottom-0 overflow-y-scroll text-sm">
       <div className="guide-section !pt-0">
         <GuideEntry title="Home">
           <All.Home />
@@ -67,7 +67,7 @@ export default function PageGuide() {
           <All.SendFeedback />
         </GuideEntry>
       </div>
-      <div className="guide-section-borderless">
+      <div className="guide-section !border-none">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, molestiae minima! Quod quas laboriosam molestias fugiat. Voluptates nesciunt optio placeat.
       </div>
     </div>
