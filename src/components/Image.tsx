@@ -1,13 +1,13 @@
 
-type Image = {
+type Props = {
   title: string;
-  image: string | undefined;
+  src: string | undefined;
 }
 
-export default function Image({ title, image }: Image) {
+export default function Image({ title, src }: Props) {
   return (
     <div>
-        <img src={image} className="w-full rounded-lg"></img>
+        <img src={src} className="w-full rounded-lg" />
         <button className="flex">
           <div className={`rounded-full w-5 aspect-square`} />
           <p>{title}</p>

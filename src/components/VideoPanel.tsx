@@ -1,12 +1,19 @@
 import imageArray from '../assets/static/img/images'
 import Image from './Image'
+import videoArray from '../assets/static/videos/videos'
+import Video from './Video'
 
 export default function VideoPanel() {
   const images = imageArray.map((img) => 
-    <Image title={img.title} image={img.image} key={img.title} />
+    <Image title={img.title} src={img.src} key={img.title} />
+  )
+
+  const videos = videoArray.map(video => 
+    <Video title={video.title} src={video.src} thumbnail={video.thumbnail} key={video.title} />  
   )
   return (
-    <div className="grid gap-3 w-full grid-cols-[repeat(auto-fill,minmax(300px,1fr))] mt-4">
+    <div className="grid gap-3 w-full h-full grid-cols-[repeat(auto-fill,minmax(340px,1fr))] mt-4">
+      {videos}
       {images}
     </div>
   )

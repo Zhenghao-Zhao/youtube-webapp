@@ -1,9 +1,14 @@
 import * as All from "../assets/widgets/Icons";
 import GuideEntry from "../components/GuideEntry";
+import { twMerge } from "tailwind-merge"
 
-export default function PageGuide() {
+type Props = {
+  className?: string;
+}
+
+export default function PageGuide({ className }: Props) {
   return (
-    <div className="flex flex-col items-center w-guide-normal fixed top-16 bottom-0 overflow-y-scroll text-sm">
+    <div className={twMerge("flex flex-col items-center w-guide-normal fixed top-12 bottom-0 overflow-y-scroll text-sm bg-white pt-4", className)}>
       <div className="guide-section !pt-0">
         <GuideEntry title="Home">
           <All.Home />

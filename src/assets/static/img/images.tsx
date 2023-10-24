@@ -10,14 +10,14 @@ import img9 from './img9.jpg'
 
 
 export default [
-  {title: "img1", image: img1, description: "Lorem ipsum dolor sit amet."},
-  {title: "img2", image: img2, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, sunt."},
-  {title: "img3", image: img3, description: "Lorem, ipsum dolor."},
-  {title: "img4", image: img4, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iste autem. Totam harum atque ea praesentium aliquam laboriosam ut laudantium!"},
-  {title: "img5", image: img5, description: "Lorem ipsum dolor sit amet."},
-  {title: "img6", image: img6, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vero iste ex earum esse!"},
-  {title: "img7", image: img7, description: "Lorem, ipsum."},
-  {title: "img8", image: img8, description: "orem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aliquam dolor at amet nesciunt facilis. Libero amet ex, rerum adipisci aut nam dicta maiores debitis harum voluptas beatae enim in.L  "},
-  {title: "img9", image: img9, description: "Lorem ipsum dolor sit amet consectetur."},
+  {title: "img1", src: img1, description: "Lorem ipsum dolor sit amet."},
+  {title: "img2", src: img2, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, sunt."},
+  {title: "img3", src: img3, description: "Lorem, ipsum dolor."},
+  {title: "img4", src: img4, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iste autem. Totam harum atque ea praesentium aliquam laboriosam ut laudantium!"},
+  {title: "img5", src: img5, description: "Lorem ipsum dolor sit amet."},
+  {title: "img6", src: img6, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vero iste ex earum esse!"},
+  {title: "img7", src: img7, description: "Lorem, ipsum."},
+  {title: "img8", src: img8, description: "orem ipsum dolor sit amet consectetur, adipisicing elit. Delectus aliquam dolor at amet nesciunt facilis. Libero amet ex, rerum adipisci aut nam dicta maiores debitis harum voluptas beatae enim in.L  "},
+  {title: "img9", src: img9, description: "Lorem ipsum dolor sit amet consectetur."},
 ]
 

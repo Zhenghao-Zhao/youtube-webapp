@@ -9,7 +9,8 @@ module.exports = {
           hover: 'var(--btn-hover)',
           primary: 'var(--btn-primary)',
           select: 'var(--btn-select)',
-        }
+        },
+        backdrop: 'var(--backdrop)',
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],

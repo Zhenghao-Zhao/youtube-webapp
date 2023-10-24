@@ -10,6 +10,7 @@
   --btn-select: #000;
   --guide-normal: 15rem;
   --guide-small: 5rem;
+  --backdrop: rgba(0, 0, 0, 0.5);
 }
 
 .icon {
