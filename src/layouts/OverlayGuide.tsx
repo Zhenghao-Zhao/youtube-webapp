@@ -12,7 +12,7 @@ export default function OverlayGuide({ toggleOverlay }: Props) {
   return (
     <div className="absolute inset-0 bg-backdrop z-50">
       <div className="absolute bg-white">
-        <div className= "flex gap-4 items-center shrink-0 py-1 w-guide-normal px-4">
+        <div className= "fixed flex gap-4 items-center shrink-0 h-14 w-guide-normal px-4 bg-white">
           <IconButton handleClick={ toggleOverlay }>
             <MenuIcon />
           </IconButton>
