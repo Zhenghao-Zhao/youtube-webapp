@@ -1,5 +1,4 @@
 import { ReactNode } from "react"
-import GuideEntry from "./GuideEntry"
 
 type Props = {
   children: ReactNode,
@@ -8,8 +7,9 @@ type Props = {
 
 export default function MiniGuideEntry({ children, title, ...props }: Props) {
   return (
-    <GuideEntry title={ title } className="flex-col pl-0 gap-1 py-4">
-      {children}
-    </GuideEntry>
+    <button className="flex flex-col w-16 py-5 justify-center items-center rounded-lg hover:bg-btn-hover">
+      <div className="w-6 mb-[6px]">{ children }</div>
+      { title }
+    </button>
   )
 }

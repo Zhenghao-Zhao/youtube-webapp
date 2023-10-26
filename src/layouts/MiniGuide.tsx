@@ -3,7 +3,7 @@ import MiniGuideEntry from "../components/MiniGuideEntry"
 
 export default function MiniGuide() {
   return (
-    <div className="flex flex-col items-center w-guide-small fixed top-14 bottom-0 text-[10px] ml-1">
+    <div className="flex flex-col items-center w-guide-small fixed top-14 bottom-0 text-[10px] px-1">
       <MiniGuideEntry title="Home">
         <Home />
       </MiniGuideEntry>
