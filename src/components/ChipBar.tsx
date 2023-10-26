@@ -14,22 +14,19 @@ export default function ChipBar() {
 
   useEffect(() => {
     const chipbar = sizeRef.current!;
+    const list = listRef.current!;
+
     const containerObserver = new ResizeObserver(entries => {
       const container = entries[0].target;
       containerRef.current!.style.setProperty('width', '' + container.clientWidth + 'px');
+
+      setShowRight(list.scrollWidth > container.clientWidth + list.scrollLeft);
+      setShowLeft(list.scrollLeft > 0);
     })
 
     containerObserver.observe(chipbar);
-    const element = listRef.current!;
-
-    const observer = new ResizeObserver(entires => {
-      const container = entires[0].target;
-      setShowRight(container.scrollWidth > container.clientWidth);
-      setShowLeft(container.scrollLeft > 0);
-    })
-    observer.observe(element);
     return () => {
-      observer.disconnect();
+      containerObserver.disconnect();
     }
   }, [])
 
