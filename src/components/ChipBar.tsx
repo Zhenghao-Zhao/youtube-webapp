@@ -60,7 +60,7 @@ export default function ChipBar() {
 
   return (
     <div ref={sizeRef} className="h-14">
-      <div ref={containerRef} className="fixed flex items-center top-14 bg-white h-12">
+      <div ref={containerRef} className="fixed flex items-center top-14 bg-white h-12 z-50">
         {showLeft && <ArrowButton handleClick={handleLeftClick} className="rotate-180 left-0"/>}
         <div ref={listRef} className="overflow-x-hidden flex items-center h-10 scroll-smooth gap-3 text-sm">
           { chips }

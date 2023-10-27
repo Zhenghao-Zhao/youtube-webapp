@@ -6,20 +6,25 @@ type Props = {
   thumbnail?: string | undefined;
 }
 export default function Video({ title, src, thumbnail }: Props) {
-  const ref = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const onMouseOver = () => {
-    ref.current!.setAttribute('controls', '');
-    ref.current!.play();
+    imageRef.current!.setAttribute('hidden', '');
+    videoRef.current!.removeAttribute('hidden');
+    videoRef.current!.setAttribute('controls', '');
+    videoRef.current!.play();
   }
 
   const onMouseLeave = () => {
-    ref.current!.removeAttribute('controls');
-    ref.current!.pause();
+    videoRef.current!.setAttribute('hidden', '');
+    imageRef.current!.removeAttribute('hidden');
+    videoRef.current!.removeAttribute('controls');
+    videoRef.current!.pause();
   }
   return (
-    <div>
-      <video ref={ref} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} className="rounded-lg" muted>
-        <source src={thumbnail} type='image/jpeg'/>
+    <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+      <img ref={imageRef} src={thumbnail} alt="thumbnail" />
+      <video ref={videoRef} className="rounded-lg" muted hidden>
         <source src={src} type='video/mp4'/>
       </video>
       <button className="flex">
