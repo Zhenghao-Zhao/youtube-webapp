@@ -11,7 +11,7 @@ type Props = {
 
 export default function MenuBar({ setIsOpen }: Props) {
   return (
-    <div className="flex gap-1 items-center">
+    <div className="flex items-center">
       <IconButton handleClick={ () => setIsOpen(true) } className="sm:hidden">
         <Search />
       </IconButton>

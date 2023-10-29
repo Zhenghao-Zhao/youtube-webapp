@@ -5,14 +5,14 @@ import PageGuide from "./PageGuide";
 
 type Props = {
   toggleOverlay: () => void;
+  show: boolean;
 }
 
-export default function OverlayGuide({ toggleOverlay }: Props) {
+export default function OverlayGuide({ toggleOverlay, show=false }: Props) {
 
   return (
-    <div className="absolute inset-0 bg-backdrop z-50">
-      <div className="absolute bg-white">
-        <div className= "fixed flex gap-4 items-center shrink-0 h-14 w-guide-normal px-4 bg-white">
+      <div className={`fixed z-[1000] bg-white h-full ${!show && "-translate-x-full"} transition-all`}>
+        <div className= "flex gap-4 items-center shrink-0 h-14 w-guide-normal px-4 bg-white">
           <IconButton handleClick={ toggleOverlay }>
             <MenuIcon />
           </IconButton>
@@ -20,8 +20,7 @@ export default function OverlayGuide({ toggleOverlay }: Props) {
             <Logo />
           </a>
         </div>
-        <PageGuide />
+        <PageGuide className="absolute" />
       </div>
-    </div>
   )
 }

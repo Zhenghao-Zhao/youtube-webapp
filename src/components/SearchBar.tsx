@@ -28,7 +28,7 @@ export default function SearchBar({ className, setIsOpen, ...props}: Props) {
 
   }
   return (
-    <form onSubmit={handleSubmit} { ...props } className={twMerge("flex h-9 basis-[500px]", className)}>
+    <form onSubmit={handleSubmit} { ...props } className={twMerge("flex h-9 basis-[600px]", className)}>
       <div ref={searchbar} className="flex items-center relative border border-solid border-r-0 rounded-l-full ml-8 grow">
         <div ref={leftSearchIcon} className="absolute left-0 pl-3" hidden>
           <Search />

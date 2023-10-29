@@ -23,12 +23,11 @@ export default function Video({ title, src, thumbnail }: Props) {
   }
   return (
     <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
-      <img ref={imageRef} src={thumbnail} alt="thumbnail" />
-      <video ref={videoRef} className="rounded-lg" muted hidden>
+      <img ref={imageRef} src={thumbnail} alt="thumbnail" className="rounded-lg" />
+      <video ref={videoRef} muted hidden>
         <source src={src} type='video/mp4'/>
       </video>
       <button className="flex">
-          <div className={`rounded-full w-5 aspect-square`} />
           <p>{title}</p>
         </button>
     </div>

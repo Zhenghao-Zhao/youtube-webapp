@@ -15,7 +15,7 @@ export default function PageHeader({ toggleGuide }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="flex justify-between items-center gap-8 fixed w-full top-0 z-50 bg-white">
+    <div className="flex justify-between items-center fixed w-full top-0 z-50 bg-white">
       <div className={`${isOpen? "hidden sm:flex" : "flex"} gap-4 items-center shrink-0 h-14 px-4`}>
         <IconButton handleClick={toggleGuide}>
           <MenuIcon />
@@ -29,11 +29,13 @@ export default function PageHeader({ toggleGuide }: Props) {
         <Return />
       </IconButton>
       }
-      <div className={`${isOpen? "flex" : "hidden sm:flex"} items-center justify-center gap-2 grow`}>
+      <div className={`${isOpen? "flex" : "hidden sm:flex"} items-center justify-center grow h-14`}>
         <SearchBar setIsOpen={setIsOpen}/>
-        <Voice />
+        <div className="p-2">
+          <Voice />
+        </div>
       </div>
-      <div className={`${isOpen? "hidden sm:flex" : "flex"} items-center shrink-0 pr-6`}>
+      <div className={`${isOpen? "hidden sm:flex" : "flex"} items-center shrink-0 pr-4`}>
         <MenuBar setIsOpen={ setIsOpen }/>
       </div>
     </div> 
