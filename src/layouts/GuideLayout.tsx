@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GuideTypes } from "../assets/static/types"
 import MiniGuide from "./MiniGuide";
 import PageGuide from "./PageGuide";
+import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 
-type Props = {
-  layout: GuideTypes | null;
-}
-
-export default function GuideLayout({ layout }: Props) {
-
+export default function GuideLayout() {
   return (
-    layout === GuideTypes.Mini? <MiniGuide /> : 
-    layout === GuideTypes.Regular? <PageGuide /> : null
+    <>
+      <MiniGuide />
+      <PageGuide />
+    </>
   )
 }

@@ -1,14 +1,13 @@
 import { GuideTypes } from "../assets/static/types";
 import ChipBar from "../components/ChipBar";
 import VideoPanel from "../components/VideoPanel";
+import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 
-type Props = {
-  currentLayout: GuideTypes | null;
-}
+export default function PageBody() {
+  const { guideLayout } = useGuidebarContext();
 
-export default function PageBody({ currentLayout }: Props) {
   return (
-    <div className={`mt-14 ${currentLayout === null? "" : currentLayout === GuideTypes.Mini? "ml-guide-small":"ml-guide-normal"} px-6`}>
+    <div className={`mt-14 min-[729px]:max-[1312px]:ml-guide-small ${guideLayout===GuideTypes.Regular? "min-[1312px]:ml-guide-normal":"min-[1312px]:ml-guide-small"} px-6`}>
       <ChipBar />
       <VideoPanel />
     </div>

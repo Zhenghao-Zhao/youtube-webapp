@@ -6,13 +6,20 @@ import SearchBar from "../components/SearchBar";
 import { useState } from 'react'
 import IconButton from "../components/IconButton";
 import { MenuIcon, Return } from "../assets/widgets/Icons";
+import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
+import { GuideTypes } from "../assets/static/types";
 
-type Props = {
-  toggleGuide: () => void;
-}
-
-export default function PageHeader({ toggleGuide }: Props) {
+export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { guideLayout, setGuideLayout, setShowOverlay } = useGuidebarContext();
+
+  const toggleGuide = () => {
+    if (window.innerWidth < 1312) {
+      setShowOverlay(true);
+    } else {
+      setGuideLayout(1 - guideLayout!);
+    }
+  }
 
   return (
     <div className="flex justify-between items-center fixed w-full top-0 z-50 bg-white">

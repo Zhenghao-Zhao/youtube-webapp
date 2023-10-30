@@ -5,58 +5,22 @@ import OverlayGuide from './layouts/OverlayGuide';
 import Backdrop from './components/Backdrop';
 import { GuideTypes } from './assets/static/types';
 import GuideLayout from './layouts/GuideLayout';
+import GuidebarContextProvider, { GuidebarContext, useGuidebarContext } from './contexts/GuidebarContextProvider';
+import MiniGuide from './layouts/MiniGuide';
+import PageGuide from './layouts/PageGuide';
 
 function App() {
-  const [guideLayout, setGuideLayout] = useState<GuideTypes | null>(0); // 0: mini guide; 1: regular guide
-  const [showOverlay, setShowOverlay] = useState<boolean>(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const large = window.matchMedia('(max-width: 1312px');
-  const small = window.matchMedia('(max-width: 792px');
-
-  useEffect(() => {
-    large.addEventListener('change', updateLargeScreen)
-    small.addEventListener('change', updateSmallScreen);
-    return () => {
-      large.removeEventListener('change', updateLargeScreen);
-      small.removeEventListener('change', updateSmallScreen);
-    }
-  }, [])
-  
-
-  const updateLargeScreen = (e: MediaQueryListEvent) => {
-    if (e.matches) {
-      setGuideLayout(GuideTypes.Mini);
-    } else {
-      setGuideLayout(GuideTypes.Regular);
-    }
-  }
-
-  const updateSmallScreen = (e: MediaQueryListEvent) => {
-    if (e.matches) {
-      setGuideLayout(null);
-    } else {
-      setGuideLayout(GuideTypes.Mini);
-    }
-  }
-
-  const toggleGuide = () => {
-    if (large.matches) {
-      setShowOverlay(true);
-    } else {
-      setGuideLayout(prev => 1 - prev!);
-    }
-  }
-
+  const { guideLayout, showOverlay } = useGuidebarContext();
   return (
     <div className={`font-roboto`}>
-      <div ref={ref} className={`absolute inset-0 ${showOverlay && "overflow-hidden"}`}>
-        <PageHeader toggleGuide={ toggleGuide }/>
-        <GuideLayout layout={guideLayout} />
-        <OverlayGuide toggleOverlay={() => setShowOverlay(false)} show={showOverlay}/>
-        <PageBody currentLayout={guideLayout} />
+      <div className={`absolute inset-0 ${showOverlay && "overflow-hidden"}`}>
+        <PageHeader />
+        <MiniGuide />
+        <PageGuide className={guideLayout===GuideTypes.Regular? "min-[1312px]:flex":"min-[1312px]:hidden"}  />
+        <OverlayGuide />
+        <PageBody />
       </div>
-      {showOverlay && <Backdrop setShowOverlay={setShowOverlay}/>}
+      <Backdrop />
     </div>
   );
 }
