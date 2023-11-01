@@ -1,5 +1,4 @@
 import IconButton from "../../components/IconButton"
-import { NotificationIcon } from "./Icons"
 
 export default function Notification() {
   const handleClick = () => {
@@ -7,8 +6,6 @@ export default function Notification() {
   }
 
   return (
-    <IconButton>
-      <NotificationIcon />
-    </IconButton>
+    <IconButton icon="NotificationIcon" />
   )
 }

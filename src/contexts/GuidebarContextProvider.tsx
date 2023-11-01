@@ -17,7 +17,7 @@ type Props = {
 
 export default function GuidebarContextProvider({ children } : Props) {
 
-  const [guideLayout, setGuideLayout] = useState<GuideTypes | null>(0); // 0: mini guide; 1: regular guide
+  const [guideLayout, setGuideLayout] = useState<GuideTypes | null>(1); // 0: mini guide; 1: regular guide
   const [showOverlay, setShowOverlay] = useState<boolean>(false);
 
   return (

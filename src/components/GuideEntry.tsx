@@ -1,17 +1,19 @@
-import { ReactNode } from "react";
 import { twMerge } from 'tailwind-merge'
+import { icons } from "../assets/widgets/Icons"
 
 type Props = {
-  children: ReactNode,
+  icon?: string,
   title: string,
-  className?: string
+  url: string,
+  className?: string,
+  // image?: string,
 }
 
-export default function GuideEntry({ children, title, className, ...props }: Props) {
+export default function GuideEntry({ icon, title, url, className, ...props }: Props) {
   return (
-    <button {...props} className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover px-4 h-10 rounded-lg", className)}>
-      <div className="w-6 mr-6">{ children }</div>
-      <div className="flex-1 text-left">{ title }</div>
-    </button>
+    <a href={url} {...props} className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover px-4 h-10 rounded-lg", className)}>
+      <div className="w-6 mr-6">{icon && icons[icon]}</div>
+      <div className="flex-1 text-left">{title}</div>
+    </a>
   )
 }

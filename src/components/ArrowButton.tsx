@@ -1,4 +1,3 @@
-import { ArrowRight } from "../assets/widgets/Icons";
 import IconButton from "./IconButton";
 import { twMerge } from "tailwind-merge"
 
@@ -12,9 +11,7 @@ export default function ArrowButton({ className, handleClick }: Props) {
     <div className={twMerge("absolute right-0 w-28 h-10 items-center flex", className)}>
       <div className="shrink-0 w-full h-full bg-gradient-to-r from-transparent via-white to-white" />
       <div className="absolute right-0 flex shrink-0 justify-end z-50">
-        <IconButton handleClick={ handleClick }>
-          <ArrowRight />
-        </IconButton>
+        <IconButton icon="ArrowRight" handleClick={ handleClick } />
       </div>
     </div>
   )

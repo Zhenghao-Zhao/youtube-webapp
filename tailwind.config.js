@@ -17,6 +17,10 @@ module.exports = {
       spacing: {
         'guide-small': 'var(--guide-small)',
         'guide-normal': 'var(--guide-normal)',
+      },
+      screens: {
+        'smGb': '820px',
+        'lgGb': '1312px',
       }
     },
   },

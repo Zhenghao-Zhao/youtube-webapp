@@ -1,5 +1,4 @@
 import IconButton from "../../components/IconButton"
-import { MenuIcon } from "./Icons"
 
 export default function Menu() {
   const handleClick = () => {
@@ -7,8 +6,6 @@ export default function Menu() {
   }
 
   return (
-    <IconButton>
-      <MenuIcon />
-    </IconButton>
+    <IconButton icon="MenuIcon" />
   )
 }

@@ -5,9 +5,7 @@ import MenuBar from "../components/MenuBar";
 import SearchBar from "../components/SearchBar";
 import { useState } from 'react'
 import IconButton from "../components/IconButton";
-import { MenuIcon, Return } from "../assets/widgets/Icons";
 import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
-import { GuideTypes } from "../assets/static/types";
 
 export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -22,21 +20,17 @@ export default function PageHeader() {
   }
 
   return (
-    <div className="flex justify-between items-center fixed w-full top-0 z-50 bg-white">
+    <section className="flex justify-between items-center fixed w-full top-0 z-50 bg-white h-14">
       <div className={`${isOpen? "hidden sm:flex" : "flex"} gap-4 items-center shrink-0 h-14 px-4`}>
-        <IconButton handleClick={toggleGuide}>
-          <MenuIcon />
-        </IconButton>
+        <IconButton icon="MenuIcon" handleClick={toggleGuide} />
         <a href="/">
           <Logo />
         </a>
       </div>
       { isOpen && 
-      <IconButton handleClick={() => setIsOpen(false)} className="sm:hidden">
-        <Return />
-      </IconButton>
+      <IconButton icon="Return" handleClick={() => setIsOpen(false)} className="sm:hidden" />
       }
-      <div className={`${isOpen? "flex" : "hidden sm:flex"} items-center justify-center grow h-14`}>
+      <div className={`${isOpen? "flex" : "hidden sm:flex"} items-center justify-center grow`}>
         <SearchBar setIsOpen={setIsOpen}/>
         <div className="p-2">
           <Voice />
@@ -45,6 +39,6 @@ export default function PageHeader() {
       <div className={`${isOpen? "hidden sm:flex" : "flex"} items-center shrink-0 pr-4`}>
         <MenuBar setIsOpen={ setIsOpen }/>
       </div>
-    </div> 
+    </section> 
   )
 }

@@ -1,5 +1,4 @@
 import IconButton from "../../components/IconButton";
-import { CreateIcon } from "./Icons";
 
 export default function Create() {
 
@@ -8,8 +7,6 @@ export default function Create() {
   }
 
   return (
-    <IconButton>
-      <CreateIcon />
-    </IconButton>
+    <IconButton icon="CreateIcon" />
   )
 }

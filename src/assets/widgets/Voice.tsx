@@ -1,5 +1,4 @@
 import IconButton from "../../components/IconButton";
-import { VoiceIcon } from "./Icons";
 import { twMerge } from "tailwind-merge"
 
 type Props = {
@@ -11,8 +10,6 @@ export default function Voice({className, ...props}: Props) {
     console.log("voice");
   }
   return (
-    <IconButton {...props} handleClick={handleClick} className={twMerge("sm:bg-btn-primary", className)}>
-      <VoiceIcon />
-    </IconButton>
+    <IconButton icon="VoiceIcon" {...props} handleClick={handleClick} className={twMerge("sm:bg-btn-primary", className)} />
   )
 }

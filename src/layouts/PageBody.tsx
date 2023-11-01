@@ -7,9 +7,9 @@ export default function PageBody() {
   const { guideLayout } = useGuidebarContext();
 
   return (
-    <div className={`mt-14 min-[729px]:max-[1312px]:ml-guide-small ${guideLayout===GuideTypes.Regular? "min-[1312px]:ml-guide-normal":"min-[1312px]:ml-guide-small"} px-6`}>
+    <section className={`mt-14 smGb:max-lgGb:ml-guide-small ${guideLayout===GuideTypes.Regular? "lgGb:ml-guide-normal":"lgGb:ml-guide-small"} px-6`}>
       <ChipBar />
       <VideoPanel />
-    </div>
+    </section>
   )
 }
