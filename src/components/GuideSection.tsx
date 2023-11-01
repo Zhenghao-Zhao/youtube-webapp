@@ -10,7 +10,7 @@ export default function GuideSection({ title, data, icon }: GuideSectionType) {
         {icon && <div className="w-5 ml-2">{ icons[icon] }</div>}
       </div>
       <div>
-        {data.map(d => <GuideEntry icon={d.icon} title={d.name} url={d.url}/>)}
+        {data.map(d => <GuideEntry icon={d.icon} title={d.name} url={d.url} image={d.image} />)}
       </div>
     </div>
   )

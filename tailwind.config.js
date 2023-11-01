@@ -10,6 +10,8 @@ module.exports = {
           select: 'var(--btn-select)',
         },
         backdrop: 'var(--backdrop)',
+        scrollthumb: 'var(--scrollthumb)',
+        'scrollthumb-light': 'var(--scrollthumb-light)',
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],

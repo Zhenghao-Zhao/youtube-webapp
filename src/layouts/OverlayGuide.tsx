@@ -7,6 +7,7 @@ import PageGuide from "./PageGuide";
 
 export default function OverlayGuide() {
   const { showOverlay, setShowOverlay } = useGuidebarContext();
+  console.log("overlayguide");
   useEffect(() => {
     function handler() {
       if (window.innerWidth > 1312) {

@@ -6,14 +6,15 @@ type Props = {
   title: string,
   url: string,
   className?: string,
-  // image?: string,
+  image?: string,
 }
 
-export default function GuideEntry({ icon, title, url, className, ...props }: Props) {
+export default function GuideEntry({ icon, title, url, className, image, ...props }: Props) {
   return (
-    <a href={url} {...props} className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover px-4 h-10 rounded-lg", className)}>
-      <div className="w-6 mr-6">{icon && icons[icon]}</div>
-      <div className="flex-1 text-left">{title}</div>
+    <a target='_blank' href={url} {...props} className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover px-4 h-10 rounded-lg", className)}>
+      {(icon && <div className="w-6 mr-6">{icons[icon]}</div>) || 
+      (image && <div className="w-6 mr-6"><img className='rounded-full' src={image} /></div>)}
+      <div className="flex-1 text-left truncate">{title}</div>
     </a>
   )
 }
