@@ -27,6 +27,7 @@ export type GuideEntryType = {
 
 export type GuideSectionType = {
   title: string,
+  collapse?: number,
   icon?: string,
   data: GuideEntryType[],
 }
@@ -55,6 +56,7 @@ export const GuideSections = [
 
   {
     title: "You",
+    collapse: 5,
     icon: "ArrowRight",
     data: [
       {
@@ -76,7 +78,8 @@ export const GuideSections = [
   },
   
   {
-    title: "Subscriptions",
+    title: "Subscriptions",    
+    collapse: 7,
     data: [
       {
         name: "Web Dev Simplified",
@@ -102,6 +105,31 @@ export const GuideSections = [
         name: "Los Angeles Lakers",
         url: "https://www.youtube.com/@lakers",
         image: "https://yt3.ggpht.com/cRfRvdqkt8UFmvTerPdkMouNVUxUDxCKvzXw33s3e9Cfw4yaf9TN1UzEQ8FwwFylT9wCm4WN=s88-c-k-c0x00ffffff-no-rj",
+      },
+      {
+        name: "Chris Smoove",
+        url: "https://www.youtube.com/@chrissmoove",
+        image: "https://yt3.ggpht.com/ytc/APkrFKYA9ItxAG2vilpFbTX6-gCZUXFIei6Pp6K8QAHaEg=s88-c-k-c0x00ffffff-no-rj",
+      },
+      {
+        name: "Daily Dose Of Internet",
+        url: "https://www.youtube.com/@DailyDoseOfInternet",
+        image: "https://yt3.ggpht.com/ytc/APkrFKbjsxP-pMTJvo2xOTZbjDMmlFqnnVV8zbaDGrjLqg=s88-c-k-c0x00ffffff-no-rj",
+      },
+      {
+        name: "videogamedunkey",
+        url: "https://www.youtube.com/@videogamedunkey",
+        image: "https://yt3.ggpht.com/nDTo1trLwi1nZPTqS4RjsuC1B2V920Z9jQvrwrlOWqmALdQWLK0FD-OTh2U9o49-16hHrD3N=s88-c-k-c0x00ffffff-no-rj",
+      },
+      {
+        name: "Net Ninja",
+        url: "https://www.youtube.com/@NetNinja",
+        image: "https://yt3.ggpht.com/ytc/APkrFKYOe1_kKqSz3rvE6dbf0YV1Itru68Tkz3Ir0q9R0Q=s88-c-k-c0x00ffffff-no-rj",
+      },      
+      {
+        name: "thenewboston",
+        url: "https://www.youtube.com/@thenewboston",
+        image: "https://yt3.ggpht.com/ytc/APkrFKYghaLyMlEEj0ebZh6tyrqt9VzLOJAXRFn9VTwR5g=s88-c-k-c0x00ffffff-no-rj",
       },
     ]
   },

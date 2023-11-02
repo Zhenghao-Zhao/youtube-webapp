@@ -2,22 +2,25 @@ import { useEffect } from "react";
 import Logo from "../assets/widgets/Logo";
 import IconButton from "../components/IconButton";
 import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
-import PageGuide from "./PageGuide";
+import Guidebar from "./GuideBar";
+import { minLarge } from "../constants";
+import { GuideSections } from "../assets/static/Data";
 
 
 export default function OverlayGuide() {
   const { showOverlay, setShowOverlay } = useGuidebarContext();
+  
   console.log("overlayguide");
   useEffect(() => {
-    function handler() {
-      if (window.innerWidth > 1312) {
+    function handler(e:MediaQueryListEvent) {
+      if (e.matches) {
         setShowOverlay(false);
       }
     }
-    window.addEventListener('resize', handler)
+    minLarge.addEventListener('change', handler)
 
     return () => {
-      window.removeEventListener('resize', handler);
+      minLarge.removeEventListener('change', handler);
     }
   }, [])
 
@@ -29,7 +32,7 @@ export default function OverlayGuide() {
             <Logo />
           </a>
         </div>
-        <PageGuide className={`absolute ${showOverlay? "max-lgGb:flex" : "max-lgGb:hidden"}`} />
+        <Guidebar className={`absolute ${showOverlay? "max-lgGb:flex" : "max-lgGb:hidden"}`} GuideSections={GuideSections} />
       </section>
   )
 }

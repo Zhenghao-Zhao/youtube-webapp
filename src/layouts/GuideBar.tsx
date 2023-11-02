@@ -1,16 +1,17 @@
 import { twMerge } from "tailwind-merge"
-import { GuideSections } from "../assets/static/Data"
+import { GuideSectionType } from "../assets/static/Data"
 import { useMemo } from "react";
 import GuideSection from "../components/GuideSection";
 
 type Props = {
   className?: string;
+  GuideSections: GuideSectionType[];
 }
 
-export default function PageGuide({ className }: Props) {
+export default function GuideBar({ className, GuideSections }: Props) {
   console.log("pageguide")
   const sections = useMemo(() => {
-    return GuideSections.map(section => <GuideSection title={section.title} data={section.data} icon={section.icon} />)
+    return GuideSections.map(section => <GuideSection title={section.title} data={section.data} icon={section.icon} collapse={section.collapse} />)
   }, [GuideSections])
 
   return (
