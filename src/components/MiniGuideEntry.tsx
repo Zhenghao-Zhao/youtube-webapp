@@ -1,8 +1,8 @@
 import { ReactNode } from "react"
-import { icons } from "../assets/widgets/Icons";
+import { IconType, icons } from "../assets/widgets/Icons";
 
 type Props = {
-  icon: string;
+  icon: IconType;
   title: string,
 }
 

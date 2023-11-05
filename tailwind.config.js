@@ -12,6 +12,7 @@ module.exports = {
         backdrop: 'var(--backdrop)',
         scrollthumb: 'var(--scrollthumb)',
         'scrollthumb-light': 'var(--scrollthumb-light)',
+        tooltip: 'var(--tooltip)',
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],

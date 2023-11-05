@@ -1,4 +1,4 @@
-export const LARGE = '1310px'
-export const SMALL = '820px'
-export const minLarge = window.matchMedia(`(min-width:${LARGE})`);
-export const minSmall = window.matchMedia(`(min-width:${SMALL})`);
+export const LARGE = 1310;
+export const SMALL = 820;
+export const minLarge = window.matchMedia(`(min-width:${LARGE}px)`);
+export const minSmall = window.matchMedia(`(min-width:${SMALL}px)`);

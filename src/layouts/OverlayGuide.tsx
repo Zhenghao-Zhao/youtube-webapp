@@ -5,6 +5,7 @@ import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 import Guidebar from "./GuideBar";
 import { minLarge } from "../constants";
 import { GuideSections } from "../assets/static/Data";
+import { IconType } from "../assets/widgets/Icons";
 
 
 export default function OverlayGuide() {
@@ -27,7 +28,7 @@ export default function OverlayGuide() {
   return (
       <section className={`fixed z-[1000] bg-white h-full ${!showOverlay && "-translate-x-full"} transition-all`}>
         <div className= "flex gap-4 items-center shrink-0 h-14 w-guide-normal px-4 bg-white">
-          <IconButton icon="MenuIcon" handleClick={ () => setShowOverlay(false) } />
+          <IconButton icon={IconType.MenuIcon} handleClick={ () => setShowOverlay(false) } />
           <a href="/">
             <Logo />
           </a>

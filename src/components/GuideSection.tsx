@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { GuideSectionType } from "../assets/static/Data"
-import { icons } from "../assets/widgets/Icons"
+import { IconType, icons } from "../assets/widgets/Icons"
 import GuideEntry from "./GuideEntry"
 import IconButton from "./IconButton";
 
@@ -14,7 +14,7 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
   const openEntries = useMemo(() => {
     return data.reduce<JSX.Element[]>((rst, curr, i) => {
       if (i < collapse) {
-        rst.push(<GuideEntry icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />);
+        rst.push(<GuideEntry key={i} icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />);
       }
       return rst;
     }, [])
@@ -24,7 +24,7 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
     const rtn = collapse >= data.length? null : 
     data.reduce<JSX.Element[]>((rst, curr, i) => {
       if (i >= collapse) {
-        rst.push(<GuideEntry icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />);
+        rst.push(<GuideEntry key={i} icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />);
       }
       return rst;
     }, [])
@@ -33,8 +33,8 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
 
 
   const collapseButton = collapse >= data.length? null : isCollapsed? 
-  <IconButton icon="ArrowDown" className="rounded-lg px-4 gap-6" name={`Show More`} handleClick={handleClick}/> :
-  <IconButton icon="ArrowUp" className="rounded-lg px-4 gap-6" name={`Show Fewer`} handleClick={handleClick}/>
+  <IconButton icon={IconType.ArrowDown} className="rounded-lg px-4 gap-6" name={`Show More`} handleClick={handleClick}/> :
+  <IconButton icon={IconType.ArrowUp} className="rounded-lg px-4 gap-6" name={`Show Fewer`} handleClick={handleClick}/>
 
   return (
     <div className="w-full flex flex-col border-b border-solid px-2 py-2 ">

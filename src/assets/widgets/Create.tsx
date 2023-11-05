@@ -1,4 +1,5 @@
 import IconButton from "../../components/IconButton";
+import { IconType } from "./Icons";
 
 export default function Create() {
 
@@ -7,6 +8,6 @@ export default function Create() {
   }
 
   return (
-    <IconButton icon="CreateIcon" />
+    <IconButton icon={IconType.CreateIcon} tip="Create" />
   )
 }

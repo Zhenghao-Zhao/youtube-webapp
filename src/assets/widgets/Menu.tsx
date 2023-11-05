@@ -1,4 +1,5 @@
 import IconButton from "../../components/IconButton"
+import { IconType } from "./Icons"
 
 export default function Menu() {
   const handleClick = () => {
@@ -6,6 +7,6 @@ export default function Menu() {
   }
 
   return (
-    <IconButton icon="MenuIcon" />
+    <IconButton icon={IconType.MenuIcon} />
   )
 }

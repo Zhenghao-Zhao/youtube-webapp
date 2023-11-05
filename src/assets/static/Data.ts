@@ -1,3 +1,4 @@
+import { IconType } from "../widgets/Icons"
 
 export const chips = [
   "All",
@@ -21,14 +22,14 @@ export const chips = [
 export type GuideEntryType = {
   name: string,
   url: string,
-  icon?: string,
+  icon?: IconType | string,
   image?: string,
 }
 
 export type GuideSectionType = {
   title: string,
   collapse?: number,
-  icon?: string,
+  icon?: IconType | string,
   data: GuideEntryType[],
 }
 
