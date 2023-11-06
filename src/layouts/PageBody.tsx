@@ -5,7 +5,6 @@ import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 
 export default function PageBody() {
   const { guideLayout } = useGuidebarContext();
-  console.log("body")
   return (
     <section className={`mt-14 smGb:max-lgGb:ml-guide-small ${guideLayout===GuideTypes.Regular? "lgGb:ml-guide-normal":"lgGb:ml-guide-small"} px-6`}>
       <ChipBar />

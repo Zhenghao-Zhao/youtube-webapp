@@ -1,15 +1,28 @@
-import {twMerge} from 'tailwind-merge'
+import { useEffect, useState } from "react"
+import { Position } from "./TooltipWrapper";
 
 type Props = {
-  tip?: string;
-  className?: string;
-  children: React.ReactNode;
+  content?: string;
+  position?: Position
 }
 
-export default function Tooltip({ tip, className, children, ...props} : Props) {
+export default function Tooltip({ content, position }: Props) {
+  const [show, setShow] = useState<boolean>(false);
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      setShow(true)
+    }, 500)
+    return () => clearTimeout(timeout);
+  }, [])
+
+  let style = position? {
+    left: position.x + 'px',
+    top: position.y + 'px',
+  } : {};
+
   return (
-    <div className={twMerge('bg-tooltip text-white absolute z-[1000] -bottom-6 text-center text-xs p-1', className)}>
-      {tip}
+    <div style={ style } className={`${!show && 'hidden'} absolute text-white text-xs bg-tooltip p-1 w-fit z-[1002]`}>
+      <p>{ content }</p>
     </div>
   )
 }

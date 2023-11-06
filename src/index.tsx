@@ -12,6 +12,5 @@ root.render(
     <GuidebarContextProvider>
       <App />
     </GuidebarContextProvider>
-
   </React.StrictMode>
 );

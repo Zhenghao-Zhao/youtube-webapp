@@ -12,8 +12,6 @@ export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { guideLayout, setGuideLayout, setShowOverlay } = useGuidebarContext();
 
-  console.log("header");
-
   const toggleGuide = () => {
     if (window.innerWidth < LARGE) {
       setShowOverlay(true);

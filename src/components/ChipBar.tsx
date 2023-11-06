@@ -1,6 +1,6 @@
 import { chips as chipArray } from "../assets/static/Data"
 import Chip from "../assets/widgets/Chip"
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import ArrowButton from "./ArrowButton"
 
 export default function ChipBar() {
@@ -34,7 +34,7 @@ export default function ChipBar() {
       <Chip title={chip} key={i} onSelect={() => { setSelectedChip(chip) }} selectedChip={selectedChip}/>
   )
 
-  const handleLeftClick = () => {
+  const handleLeftClick = useCallback(() => {
     setShowRight(true);
     const element = listRef.current!;
 
@@ -43,11 +43,10 @@ export default function ChipBar() {
       return setShowLeft(false);
     }
     element.scrollLeft -= TRANSLATE_DISTANCE;
-  }
+  }, [listRef])
 
-  const handleRightClick = () => {
+  const handleRightClick = useCallback(() => {
     setShowLeft(true);
-
     const element = listRef.current!;
     const maxScrollLeft = element.scrollWidth - element.clientWidth;
 
@@ -56,7 +55,7 @@ export default function ChipBar() {
       return setShowRight(false);
     } 
     element.scrollLeft += TRANSLATE_DISTANCE;
-  }
+  }, [listRef])
 
   return (
     <div ref={sizeRef} className="h-14">

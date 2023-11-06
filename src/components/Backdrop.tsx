@@ -6,7 +6,6 @@ type Props = {
 
 export default function Backdrop() {
   const { showOverlay, setShowOverlay } = useGuidebarContext();
-  console.log("drop")
   return (
     <div className={`${showOverlay? "fixed" : "hidden"} inset-0 bg-backdrop z-[100]`} onClick={() => setShowOverlay(false)}/>
   )

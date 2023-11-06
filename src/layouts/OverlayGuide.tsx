@@ -11,7 +11,6 @@ import { IconType } from "../assets/widgets/Icons";
 export default function OverlayGuide() {
   const { showOverlay, setShowOverlay } = useGuidebarContext();
   
-  console.log("overlayguide");
   useEffect(() => {
     function handler(e:MediaQueryListEvent) {
       if (e.matches) {

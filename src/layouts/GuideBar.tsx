@@ -9,7 +9,6 @@ type Props = {
 }
 
 export default function GuideBar({ className, GuideSections }: Props) {
-  console.log("pageguide")
   const sections = useMemo(() => {
     return GuideSections.map((section, i) => <GuideSection key={i} title={section.title} data={section.data} icon={section.icon} collapse={section.collapse} />)
   }, [GuideSections])

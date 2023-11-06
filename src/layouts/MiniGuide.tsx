@@ -5,7 +5,6 @@ import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 
 export default function MiniGuide() {
   const { guideLayout } = useGuidebarContext();
-  console.log("miniguide");
   return (
     <section className={`smGb:max-lgGb:flex max-smGb:hidden ${guideLayout===GuideTypes.Mini? "lgGb:flex":"lgGb:hidden"} 
     flex-col items-center w-guide-small fixed top-14 bottom-0 text-[10px] px-1`}>
