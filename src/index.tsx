@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import GuidebarContextProvider from './contexts/GuidebarContextProvider';
+import TooltipContextProvider from './contexts/TooltipContextProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,7 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GuidebarContextProvider>
-      <App />
+      <TooltipContextProvider>
+        <App />
+      </TooltipContextProvider>
     </GuidebarContextProvider>
   </React.StrictMode>
 );

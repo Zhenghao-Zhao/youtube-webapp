@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react"
-import { Position } from "./TooltipWrapper";
+import { useEffect, useRef, useState } from "react"
+import { useTooltipContext } from "../contexts/TooltipContextProvider";
+import { twMerge } from "tailwind-merge"
 
 type Props = {
-  content?: string;
-  position?: Position
+  className?: string;
 }
 
-export default function Tooltip({ content, position }: Props) {
-  const [show, setShow] = useState<boolean>(false);
-  useEffect(() => {
-    let timeout = setTimeout(() => {
-      setShow(true)
-    }, 500)
-    return () => clearTimeout(timeout);
-  }, [])
+export default function Tooltip({ className }: Props) {
+  const { position, content, showTooltip} = useTooltipContext();
 
   let style = position? {
     left: position.x + 'px',
@@ -21,7 +15,7 @@ export default function Tooltip({ content, position }: Props) {
   } : {};
 
   return (
-    <div style={ style } className={`${!show && 'hidden'} absolute text-white text-xs bg-tooltip p-1 w-fit z-[1002]`}>
+    <div style={ style } className={twMerge(`${!showTooltip && 'hidden'} absolute text-white text-xs bg-tooltip p-1 w-fit z-[1002]`, className)}>
       <p>{ content }</p>
     </div>
   )

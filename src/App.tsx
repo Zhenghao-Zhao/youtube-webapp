@@ -7,9 +7,12 @@ import { useGuidebarContext } from './contexts/GuidebarContextProvider';
 import MiniGuide from './layouts/MiniGuide';
 import GuideBar from './layouts/GuideBar';
 import { GuideSections } from './assets/static/Data';
+import Tooltip from './components/Tooltip';
+import { useTooltipContext } from './contexts/TooltipContextProvider';
 
 function App() {
   const { guideLayout, showOverlay } = useGuidebarContext();
+  const { showTooltip } = useTooltipContext();
   return (
     <div className={`font-roboto`}>
       <div className={`absolute inset-0 ${showOverlay && "overflow-hidden"}`}>
@@ -20,6 +23,7 @@ function App() {
         <PageBody />
       </div>
       <Backdrop />
+      <Tooltip />
     </div>
   );
 }

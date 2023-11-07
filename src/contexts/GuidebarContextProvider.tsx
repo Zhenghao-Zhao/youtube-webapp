@@ -15,6 +15,14 @@ type Props = {
   children: ReactNode
 }
 
+
+export function useGuidebarContext() {
+  const value = useContext(GuidebarContext);
+  if (value == null) throw Error("Cannot use outside of Guidebar Provider");
+
+  return value;
+}
+
 export default function GuidebarContextProvider({ children } : Props) {
 
   const [guideLayout, setGuideLayout] = useState<GuideTypes | null>(1); // 0: mini guide; 1: regular guide
@@ -25,11 +33,4 @@ export default function GuidebarContextProvider({ children } : Props) {
       {children}
     </GuidebarContext.Provider>
   )
-}
-
-export function useGuidebarContext() {
-  const value = useContext(GuidebarContext);
-  if (value == null) throw Error("Cannot use outside of Guidebar Provider");
-
-  return value;
 }

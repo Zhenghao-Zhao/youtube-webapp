@@ -6,7 +6,6 @@ type Props = {
   icon: IconType;
   name?: string;
   className?: string;
-  tip?:string;
   handleClick?: () => void;
 }
 

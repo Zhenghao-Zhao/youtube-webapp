@@ -4,7 +4,6 @@ import Notification from "../assets/widgets/Notification";
 import Profile from "../assets/widgets/Profile";
 import Voice from "../assets/widgets/Voice";
 import IconButton from "./IconButton";
-import Tooltip from "./TooltipWrapper";
 
 type Props = {
   setIsOpen: (b: boolean) => void;
@@ -15,9 +14,7 @@ export default function MenuBar({ setIsOpen }: Props) {
     <div className="flex items-center">
       <IconButton icon={IconType.SearchIcon} handleClick={ () => setIsOpen(true) } className="sm:hidden" />
       <Voice className="sm:hidden"/>
-      <Tooltip tip="Create">
-        <Create />
-      </Tooltip>
+      <Create />
       <Notification />
       <Profile />
     </div>
