@@ -7,9 +7,7 @@ type Props = {
 }
 
 export default function Voice({className, ...props}: Props) {
-  const handleClick = () => {
-  }
   return (
-    <IconButton icon={IconType.VoiceIcon} {...props} handleClick={handleClick} className={twMerge("sm:bg-btn-primary", className)} />
+    <IconButton icon={IconType.VoiceIcon} {...props} className={twMerge("sm:bg-btn-primary", className)} />
   )
 }

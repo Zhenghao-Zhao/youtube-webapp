@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -29,11 +29,11 @@ export function useTooltipContext() {
   return value;
 }
 
-export default function TooltipContextProvider({ children, ...props} : Props) {
+export default function TooltipContextProvider({ children } : Props) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [position, setPosition] = useState<Position>({x: 0, y: 0}); // horizontal viewport position of tooltip
   const [content, setContent] = useState<string>("");
-  let timeout = useRef<NodeJS.Timeout | null>(null);
+  const timeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     clearTimeout(timeout.current!);
@@ -48,7 +48,6 @@ export default function TooltipContextProvider({ children, ...props} : Props) {
   }
 
   const handleMouseLeave = () => {
-    setShowTooltip(false);
     clearTimeout(timeout.current!);
   }
 
