@@ -1,6 +1,7 @@
 import IconButton from "../../components/IconButton";
 import { twMerge } from "tailwind-merge"
 import { IconType } from "./Icons";
+import TooltipWrapper from "../../components/TooltipWrapper";
 
 type Props = {
   className?: string
@@ -8,6 +9,8 @@ type Props = {
 
 export default function Voice({className, ...props}: Props) {
   return (
-    <IconButton icon={IconType.VoiceIcon} {...props} className={twMerge("sm:bg-btn-primary", className)} />
+    <TooltipWrapper content="Voice">
+      <IconButton icon={IconType.VoiceIcon} {...props} className={twMerge("sm:bg-btn-primary", className)} />
+    </TooltipWrapper>
   )
 }

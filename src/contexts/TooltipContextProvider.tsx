@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -35,13 +35,19 @@ export default function TooltipContextProvider({ children } : Props) {
   const [content, setContent] = useState<string>("");
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    function handleScroll() {setShowTooltip(false)};
+    window.addEventListener('scroll', handleScroll, true);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [])
+
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     clearTimeout(timeout.current!);
     setShowTooltip(false);
 
     timeout.current = setTimeout(() => {
-      const x = e.clientX + 10;
-      const y = e.clientY + 20;
+      const x = e.pageX + 10;
+      const y = e.pageY + 20;
       setPosition({x, y});
       setShowTooltip(true);
     }, 500)

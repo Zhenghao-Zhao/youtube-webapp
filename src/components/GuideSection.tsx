@@ -3,7 +3,6 @@ import { GuideSectionType } from "../assets/static/Data"
 import { IconType, icons } from "../assets/widgets/Icons"
 import GuideEntry from "./GuideEntry"
 import IconButton from "./IconButton";
-import TooltipWrapper from "./TooltipWrapper";
 
 export default function GuideSection({ title, data, icon, collapse=data.length }: GuideSectionType) {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
@@ -16,9 +15,7 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
     return data.reduce<JSX.Element[]>((rst, curr, i) => {
       if (i < collapse) {
         rst.push(
-        <TooltipWrapper key={i} content={curr.name}>
-          <GuideEntry icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />
-        </TooltipWrapper>
+          <GuideEntry key={i} icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />
         );
       }
       return rst;
@@ -30,9 +27,7 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
     data.reduce<JSX.Element[]>((rst, curr, i) => {
       if (i >= collapse) {
         rst.push(
-          <TooltipWrapper key={i} content={curr.name}>
-            <GuideEntry icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />
-          </TooltipWrapper>
+          <GuideEntry key={i} icon={curr.icon} title={curr.name} url={curr.url} image={curr.image} />
         )
       }
       return rst;
