@@ -1,16 +1,33 @@
-import { useTooltipContext } from "../contexts/TooltipContextProvider";
+import { useCallback,  useState } from "react";
+import { Position, useStaticContext } from "../contexts/TooltipContextProvider";
 
-type Props = {  
+type Props = {
   content: string;
   children: React.ReactNode;
 }
 
-export default function TooltipWrapper({ content, children }: Props) {
-  const { setContent, handleMouseMove, handleMouseLeave } = useTooltipContext();
+export function TooltipWrapper({ content, children }: Props) {
+  const { setShow, setPosition, setContent } = useStaticContext();
+  const [wrapperPos, setWrapperPos] = useState<Position | null>(null);
+  const ref = useCallback((node: HTMLElement | null) => {
+    if (node != null) {
+      const rect = node.getBoundingClientRect();
+      const width = node.offsetWidth;
+      const height = node.offsetHeight;
+      setWrapperPos({x: rect.left + width / 2, y: rect.top + height + 5});
+    }
+    return node;
+  }, [])
+
+  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    setContent(content);
+    setPosition(wrapperPos!);
+    setShow(true);
+  }, [content, wrapperPos])
 
   return (
-    <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onMouseEnter={() => setContent(content)}>
-      {children}
+    <div ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={() => setShow(false)}>
+      { children }
     </div>
   )
 }

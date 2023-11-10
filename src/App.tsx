@@ -1,14 +1,13 @@
 import PageHeader from './layouts/PageHeader';
 import PageBody from './layouts/PageBody';
 import OverlayGuide from './layouts/OverlayGuide';
-import Backdrop from './components/Backdrop';
+import Backdrop from './assets/widgets/Backdrop';
 import { GuideTypes } from './assets/static/types';
 import { useGuidebarContext } from './contexts/GuidebarContextProvider';
 import MiniGuide from './layouts/MiniGuide';
 import GuideBar from './layouts/GuideBar';
 import { GuideSections } from './assets/static/Data';
-import Tooltip from './components/Tooltip';
-import { useTooltipContext } from './contexts/TooltipContextProvider';
+import { Tooltip } from './components/Tooltips';
 
 function App() {
   const { guideLayout, showOverlay } = useGuidebarContext();

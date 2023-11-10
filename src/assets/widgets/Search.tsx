@@ -1,4 +1,4 @@
-import { icons } from "./Icons";
+import { icons } from "../static/Icons";
 
 export default function Search() {
   return (

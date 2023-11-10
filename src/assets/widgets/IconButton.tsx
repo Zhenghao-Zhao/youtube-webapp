@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge'
-import { icons } from "../assets/widgets/Icons";
-import { IconType } from '../assets/widgets/Icons';
-import TooltipWrapper from './TooltipWrapper';
+import { icons } from "../static/Icons";
+import { IconType } from '../static/Icons';
+import { TooltipWrapper } from '../../components/TooltipWrapper';
 
 type Props = {
   icon: IconType;
@@ -11,9 +11,9 @@ type Props = {
   handleClick?: () => void;
 }
 
-export default function IconButton({ icon, className, name, tip, handleClick, ...props }: Props) {
+export default function IconButton({ icon, className, name, tip, handleClick }: Props) {
   const content = (
-    <button {...props} onClick={ handleClick } className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover rounded-full p-2", className)}>
+    <button title={name} onClick={ handleClick } className={twMerge("flex flex-shrink-0 items-center hover:bg-btn-hover rounded-full p-2", className)}>
       <div className="w-6">{ icons[icon] }</div>
       {name && <p>{name}</p>}
     </button>  

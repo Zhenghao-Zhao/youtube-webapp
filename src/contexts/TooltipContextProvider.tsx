@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -9,57 +9,50 @@ export type Position = {
   y: number;
 }
 
-type TooltipContextType = {
-  showTooltip: boolean;
-  setShowTooltip: (b: boolean) => void;
-  position: Position;
+interface BaseTooltipContextType {
+  show: boolean;
+  setShow: (b: boolean) => void;
+  position: Position | null;
   setPosition: (p: Position) => void;
   content: string;
   setContent: (s: string) => void;
-  handleMouseMove: (e: React.MouseEvent<HTMLElement>) => void;
-  handleMouseLeave: () => void;
 }
 
-export const TooltipContext = createContext<TooltipContextType | null>(null);
 
-export function useTooltipContext() {
+const TooltipContext = createContext<BaseTooltipContextType | null>(null);
+
+export function useStaticContext() {
   const value = useContext(TooltipContext);
   if (value == null) throw Error("Cannot use outside of Tooltip Provider");
 
   return value;
 }
 
-export default function TooltipContextProvider({ children } : Props) {
-  const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [position, setPosition] = useState<Position>({x: 0, y: 0}); // horizontal viewport position of tooltip
+export function TooltipContextProvider({ children }: Props) {
+  const [show, setShow] = useState<boolean>(false);
+  const [position, setPosition] = useState<Position | null>(null); 
   const [content, setContent] = useState<string>("");
-  const timeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    function handleScroll() {setShowTooltip(false)};
-    window.addEventListener('scroll', handleScroll, true);
-    return () => window.removeEventListener('scroll', handleScroll);
+    console.log('here')
+    function onScroll() {setShow(false)}
+    window.addEventListener('scroll', onScroll, true);
+
+    return () => window.removeEventListener('scroll', onScroll);
   }, [])
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    clearTimeout(timeout.current!);
-    setShowTooltip(false);
-
-    timeout.current = setTimeout(() => {
-      const x = e.pageX + 10;
-      const y = e.pageY + 20;
-      setPosition({x, y});
-      setShowTooltip(true);
-    }, 500)
-  }
-
-  const handleMouseLeave = () => {
-    clearTimeout(timeout.current!);
+  const values = {
+    show, 
+    setShow, 
+    position, 
+    setPosition, 
+    content, 
+    setContent
   }
 
   return (
-    <TooltipContext.Provider value={{showTooltip, setShowTooltip, position, setPosition, content, setContent, handleMouseMove, handleMouseLeave}}>
-      {children}
+    <TooltipContext.Provider value={values}>
+      { children }
     </TooltipContext.Provider>
   )
 }

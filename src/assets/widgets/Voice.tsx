@@ -1,7 +1,7 @@
-import IconButton from "../../components/IconButton";
+import IconButton from "./IconButton";
 import { twMerge } from "tailwind-merge"
-import { IconType } from "./Icons";
-import TooltipWrapper from "../../components/TooltipWrapper";
+import { IconType } from "../static/Icons";
+import { TooltipWrapper } from "../../components/TooltipWrapper";
 
 type Props = {
   className?: string
@@ -9,8 +9,6 @@ type Props = {
 
 export default function Voice({className, ...props}: Props) {
   return (
-    <TooltipWrapper content="Voice">
-      <IconButton icon={IconType.VoiceIcon} {...props} className={twMerge("sm:bg-btn-primary", className)} />
-    </TooltipWrapper>
+    <IconButton icon={IconType.VoiceIcon} {...props} className={twMerge("sm:bg-btn-primary", className)} tip="Voice" />
   )
 }

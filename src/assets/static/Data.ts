@@ -1,4 +1,4 @@
-import { IconType } from "../widgets/Icons"
+import { IconType } from "./Icons"
 
 export const chips = [
   "All",

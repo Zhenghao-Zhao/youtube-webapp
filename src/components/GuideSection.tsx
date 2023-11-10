@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { GuideSectionType } from "../assets/static/Data"
-import { IconType, icons } from "../assets/widgets/Icons"
-import GuideEntry from "./GuideEntry"
-import IconButton from "./IconButton";
+import { IconType, icons } from "../assets/static/Icons"
+import { GuideEntry } from "./GuideEntry"
+import IconButton from "../assets/widgets/IconButton";
 
 export default function GuideSection({ title, data, icon, collapse=data.length }: GuideSectionType) {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);

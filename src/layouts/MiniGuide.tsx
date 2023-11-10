@@ -1,6 +1,6 @@
 import { GuideTypes } from "../assets/static/types";
-import { IconType } from "../assets/widgets/Icons";
-import MiniGuideEntry from "../components/MiniGuideEntry"
+import { IconType } from "../assets/static/Icons";
+import { MiniGuideEntry } from "../components/GuideEntry";
 import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 
 export default function MiniGuide() {

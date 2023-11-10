@@ -1,5 +1,5 @@
-import IconButton from "../../components/IconButton"
-import { IconType } from "./Icons"
+import IconButton from "./IconButton"
+import { IconType } from "../static/Icons"
 
 export default function Notification() {
   return (

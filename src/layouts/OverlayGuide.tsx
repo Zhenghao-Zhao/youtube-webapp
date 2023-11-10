@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import Logo from "../assets/widgets/Logo";
-import IconButton from "../components/IconButton";
+import IconButton from "../assets/widgets/IconButton";
 import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 import Guidebar from "./GuideBar";
 import { minLarge } from "../constants";
 import { GuideSections } from "../assets/static/Data";
-import { IconType } from "../assets/widgets/Icons";
+import { IconType } from "../assets/static/Icons";
 
 
 export default function OverlayGuide() {

@@ -1,4 +1,4 @@
-import { IconType } from "../assets/widgets/Icons";
+import { IconType } from "../static/Icons";
 import IconButton from "./IconButton";
 import { twMerge } from "tailwind-merge"
 

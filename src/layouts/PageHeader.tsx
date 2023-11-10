@@ -3,10 +3,10 @@ import Voice from "../assets/widgets/Voice";
 import MenuBar from "../components/MenuBar";
 import SearchBar from "../components/SearchBar";
 import { useState } from 'react'
-import IconButton from "../components/IconButton";
+import IconButton from "../assets/widgets/IconButton";
 import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
 import { LARGE } from "../constants";
-import { IconType } from "../assets/widgets/Icons";
+import { IconType } from "../assets/static/Icons";
 
 export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

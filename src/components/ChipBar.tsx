@@ -1,7 +1,7 @@
 import { chips as chipArray } from "../assets/static/Data"
 import Chip from "../assets/widgets/Chip"
 import { useCallback, useEffect, useRef, useState } from 'react'
-import ArrowButton from "./ArrowButton"
+import ArrowButton from "../assets/widgets/ArrowButton"
 
 export default function ChipBar() {
   const listRef = useRef<HTMLDivElement>(null);

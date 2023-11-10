@@ -1,10 +1,9 @@
 import Create from "../assets/widgets/Create";
-import { IconType } from "../assets/widgets/Icons";
+import { IconType } from "../assets/static/Icons";
 import Notification from "../assets/widgets/Notification";
 import Profile from "../assets/widgets/Profile";
 import Voice from "../assets/widgets/Voice";
-import IconButton from "./IconButton";
-import TooltipWrapper from "./TooltipWrapper";
+import IconButton from "../assets/widgets/IconButton";
 
 type Props = {
   setIsOpen: (b: boolean) => void;

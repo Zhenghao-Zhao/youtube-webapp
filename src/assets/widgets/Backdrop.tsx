@@ -1,8 +1,4 @@
-import { useGuidebarContext } from "../contexts/GuidebarContextProvider";
-
-type Props = {
-  setShowOverlay: (b: boolean) => void
-}
+import { useGuidebarContext } from "../../contexts/GuidebarContextProvider";
 
 export default function Backdrop() {
   const { showOverlay, setShowOverlay } = useGuidebarContext();
