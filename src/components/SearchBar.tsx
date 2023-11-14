@@ -10,22 +10,24 @@ type Props = {
 export default function SearchBar({ className, setIsOpen, ...props}: Props) {
   const searchbar = useRef<HTMLInputElement | null>(null);
   const leftSearchIcon = useRef<HTMLInputElement | null>(null);
-  const handleFocus = () => {
-    searchbar.current?.classList.remove('ml-8');
-    searchbar.current?.classList.add('pl-8');
-    leftSearchIcon.current?.removeAttribute('hidden');
+  const handleFocus = (): void => {
+    if (!searchbar.current || !leftSearchIcon.current) return;
+    searchbar.current.classList.remove('ml-8');
+    searchbar.current.classList.add('pl-8');
+    leftSearchIcon.current.removeAttribute('hidden');
     setIsOpen(true);
   }
 
-  const handleBlur = () => {
-    searchbar.current?.classList.remove('pl-8');
-    searchbar.current?.classList.add('ml-8');
-    leftSearchIcon.current?.setAttribute('hidden', '');
+  const handleBlur = (): void => {
+    if (!searchbar.current || !leftSearchIcon.current) return;
+    searchbar.current.classList.remove('pl-8');
+    searchbar.current.classList.add('ml-8');
+    leftSearchIcon.current.setAttribute('hidden', '');
     setIsOpen(false);
   }
 
   const handleSubmit = () => {
-
+    console.log('submitted');
   }
   return (
     <form onSubmit={handleSubmit} { ...props } className={twMerge("flex h-10 basis-[600px]", className)}>

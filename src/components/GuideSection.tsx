@@ -4,6 +4,8 @@ import { IconType, icons } from "../assets/static/Icons"
 import { GuideEntry } from "./GuideEntry"
 import IconButton from "../assets/widgets/IconButton";
 
+
+//todos: rename collapse
 export default function GuideSection({ title, data, icon, collapse=data.length }: GuideSectionType) {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
@@ -11,7 +13,7 @@ export default function GuideSection({ title, data, icon, collapse=data.length }
     setIsCollapsed(prev => !prev);
   }
 
-  const openEntries = useMemo(() => {
+  const openEntries = useMemo((): JSX.Element[] => {
     return data.reduce<JSX.Element[]>((rst, curr, i) => {
       if (i < collapse) {
         rst.push(

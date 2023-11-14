@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -32,14 +32,6 @@ export function TooltipContextProvider({ children }: Props) {
   const [show, setShow] = useState<boolean>(false);
   const [position, setPosition] = useState<Position | null>(null); 
   const [content, setContent] = useState<string>("");
-
-  useEffect(() => {
-    console.log('here')
-    function onScroll() {setShow(false)}
-    window.addEventListener('scroll', onScroll, true);
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [])
 
   const values = {
     show, 

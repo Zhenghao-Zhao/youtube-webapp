@@ -12,7 +12,7 @@ export default function PageHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { guideLayout, setGuideLayout, setShowOverlay } = useGuidebarContext();
 
-  const toggleGuide = () => {
+  const toggleGuide = (): void => {
     if (window.innerWidth < LARGE) {
       setShowOverlay(true);
     } else {

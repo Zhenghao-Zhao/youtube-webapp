@@ -13,49 +13,44 @@ export default function ChipBar() {
   const TRANSLATE_DISTANCE = 200; // 200px per click on arrow button
 
   useEffect(() => {
-    const chipbar = sizeRef.current!;
-    const list = listRef.current!;
-
-    const containerObserver = new ResizeObserver(entries => {
-      const container = entries[0].target;
+    if (!sizeRef.current) return;
+    const containerObserver = new ResizeObserver(([entry]) => {
+      if (!listRef.current || !containerRef.current) return;
+      const container = entry.target;
       containerRef.current!.style.setProperty('width', '' + container.clientWidth + 'px');
-
-      setShowRight(list.scrollWidth > container.clientWidth + list.scrollLeft);
-      setShowLeft(list.scrollLeft > 0);
+      setShowRight(listRef.current.scrollWidth > container.clientWidth + listRef.current.scrollLeft);
+      setShowLeft(listRef.current.scrollLeft > 0);
     })
-
-    containerObserver.observe(chipbar);
-    return () => {
-      containerObserver.disconnect();
-    }
+    containerObserver.observe(sizeRef.current);
+    return () => containerObserver.disconnect();
   }, [])
 
   const chips = chipArray.map((chip, i) => 
       <Chip title={chip} key={i} onSelect={() => { setSelectedChip(chip) }} selectedChip={selectedChip}/>
   )
 
-  const handleLeftClick = useCallback(() => {
+  const handleLeftClick = useCallback((): void => {
+    if (!listRef.current) return;
     setShowRight(true);
-    const element = listRef.current!;
-
+    const element = listRef.current;
     if (element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft = 0;
       return setShowLeft(false);
     }
     element.scrollLeft -= TRANSLATE_DISTANCE;
-  }, [listRef])
+  }, [])
 
-  const handleRightClick = useCallback(() => {
+  const handleRightClick = useCallback((): void => {
+    if (!listRef.current) return;
     setShowLeft(true);
-    const element = listRef.current!;
+    const element = listRef.current;
     const maxScrollLeft = element.scrollWidth - element.clientWidth;
-
     if (maxScrollLeft - element.scrollLeft < 2 * TRANSLATE_DISTANCE) {
       element.scrollLeft += maxScrollLeft - element.scrollLeft;
       return setShowRight(false);
     } 
     element.scrollLeft += TRANSLATE_DISTANCE;
-  }, [listRef])
+  }, [])
 
   return (
     <div ref={sizeRef} className="h-14">

@@ -5,7 +5,7 @@ type Prop = {
 }
 
 export default function Chip({ title, onSelect, selectedChip}: Prop) {
-  const handleClick = () => {
+  const handleClick = (): void => {
     onSelect();
   }
   const styles = selectedChip === title? "bg-black text-white" : "hover:bg-btn-hover bg-btn-primary";

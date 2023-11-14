@@ -9,7 +9,8 @@ type Props = {
 export function TooltipWrapper({ content, children }: Props) {
   const { setShow, setPosition, setContent } = useStaticContext();
   const [wrapperPos, setWrapperPos] = useState<Position | null>(null);
-  const ref = useCallback((node: HTMLElement | null) => {
+
+  const ref = useCallback((node: HTMLElement | null): HTMLElement | null => {
     if (node != null) {
       const rect = node.getBoundingClientRect();
       const width = node.offsetWidth;
@@ -19,7 +20,7 @@ export function TooltipWrapper({ content, children }: Props) {
     return node;
   }, [])
 
-  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLElement>) => {
+  const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLElement>): void => {
     setContent(content);
     setPosition(wrapperPos!);
     setShow(true);
